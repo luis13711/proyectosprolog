@@ -1,0 +1,35 @@
+/*
+Supongamos que, en una biblioteca, si una persona tiene prestado un libro, sólo se le
+permite consultar la base de datos y leer libros dentro del recinto. En caso contrario,
+también se le permite el préstamo a domicilio, así como préstamos de otras librerías.
+Las consultas a la BD son servicios básicos:
+*/
+servicio_basico(consulta_BD).
+servicio_basico(consulta_interna).
+
+% Las consultas externas son servicios adicionales:
+servicio_adicional(prestamo_interno).
+servicio_adicional(prestamo_externo).
+
+% Los servicios completos son los básicos y los adicionales.
+servicio_completo(X) :- servicio_basico(X).
+servicio_completo(X) :- servicio_adicional(X).
+
+/*
+Ahora, si el cliente tiene un libro prestado, se le ofrecen sólo los servicios básicos:
+*/
+servicio(Cliente,Servicio) :- prestado(Cliente,_),!,servicio_basico(Servicio).
+
+/*
+A todos los clientes que no tengan prestado un libro, se les ofrecen todos los servicios:
+*/
+servicio(_,Servicio) :-
+servicio_completo(Servicio).
+
+% Por ejemplo:
+cliente('Juan').
+cliente('Pedro').
+cliente('Maria').
+
+prestado('Juan',clave107).
+prestado('Pedro',clave145).

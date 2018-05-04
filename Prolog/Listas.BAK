@@ -1,0 +1,69 @@
+invierte([],[]).
+invierte([H|T],L):- invierte(T,R), concat(R,[H],L).
+
+concat([],L,L).
+concat([X|L1],L2,[X|L3]):- concat(L1,L2,L3).
+
+resto(X,[X|_]):-write('igual a '+X).
+resto(X,[_|Y]):-resto(X,Y).
+
+crear(X,Y,[X|Y]).
+
+concatenar([],L,L).
+concatenar([X|L1],L2,[X|L3]):-concatenar(L1,L2,L3).
+
+invertir([],[]).
+invertir([X|L1],L2):- invertir(L1,L3),concatenar(L3,[X],L2).
+
+palindromo(L):-invertir(L,L).
+
+primero(X,[X|_]).
+
+ultimo(X,L):-invertir(L,[X|_]).
+
+penultimo(X,L):-invertir(L,[_,X|_]).
+
+antepenultimo(X,L):-invertir(L,[_,_,X|_]).
+
+len([],0).
+len([_|T],N):-len(T,S), N is 1+S.
+
+main:-
+write('programa de listas\n'),
+write('1.-si elemento esta en lista'),
+write('\n2.-para concatenar dos listas'),
+write('\n3.-para invertir lista'),
+write('\n4.-para crear lista a partir de dos'),
+write('\n5.-tamanio de una lista'),
+write('\n6.-para salir del programa\n'),
+read(Z),opcion(Z).
+opcion(1):-
+        write('ingrese elemento\n'),
+        write('y lista para buscarlo'),
+        read(X),
+        read(Y),
+        resto(X,Y).
+
+opcion(2):-
+        write('ingrese lista 1 y lista 2'),
+        read(X),read(Y),concatenar(X,Y,Z),
+        write(Z+'ya se concatenaron\n').
+opcion(3):-
+write('ingrese lista'),
+read(X),
+invertir(X,Z),
+write(Z+'lista ya invertida\n').
+opcion(4):-
+write('ingrese dos listas'),
+read(X),
+read(Y),crear(X,Y,Z),write('\nlista creada es '+Z).
+opcion(5):-
+write('ingrese lista para calcular longitud\n'),
+read(X),len(X,N),write('\ntamanio de lista es '+N).
+opcion(6):-
+write('ya salio del programa').
+opcion(Z):-
+write('ingreso algun valor mal\n').
+
+
+

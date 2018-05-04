@@ -1,0 +1,1 @@
+imprimir(X):- write(X).

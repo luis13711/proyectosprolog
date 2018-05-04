@@ -1,0 +1,4 @@
+main:-
+	write('hola mundo\n'),
+	write('escriba aqui'),
+X is random(20),write(X),read(X).

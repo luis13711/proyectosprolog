@@ -1,0 +1,11 @@
+recor(a,recor(b,recor(c,d))).
+recor(a,b).
+recor(b,c).
+recor(c,d).
+corre(X,Z):-
+	write(Z),
+       recor(X,Z);
+       recor(Y,Z),
+       write(Z),
+       write('<-'),
+       corre(X,Y).

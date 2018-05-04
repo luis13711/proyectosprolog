@@ -1,0 +1,7 @@
+grafo:- true.
+g(A,B).
+g(luis,javier).
+g(jose,manuel).
+g(adel,osman).
+g(juan,alfonso).
+g(lionel,jesus).

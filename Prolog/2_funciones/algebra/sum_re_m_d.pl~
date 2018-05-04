@@ -1,0 +1,48 @@
+% algebra.pro: Procesamiento Simbólico (SWI-Prolog)
+
+sum(X,Y,R) :-
+	number(X),
+	number(Y),
+	R is X+Y.
+sum(X,X,R) :-
+    atom(X),
+    concat('2',X,R).
+sum(X,Y,R) :-
+    concat(X,'+',Z),
+    concat(Z,Y,R).
+
+res(X,Y,R) :-
+	number(X),
+	number(Y),
+	R is X-Y.
+res(X,X,R) :-
+    atom(X),
+    concat('2',X,R).
+res(X,Y,R) :-
+    concat(X,'-',Z),
+    concat(Z,Y,R).
+
+mul(X,Y,R) :-
+	number(X),
+	number(Y),
+	R is X*Y.
+mul(X,X,R) :-
+    atom(X),
+    concat('2',X,R).
+mul(X,Y,R) :-
+    concat(X,'*',Z),
+    concat(Z,Y,R).
+
+div(X,Y,R) :-
+	number(X),
+	number(Y),
+	R is X/Y.
+div(X,X,R) :-
+    atom(X),
+    concat('2',X,R).
+div(X,Y,R) :-
+    concat(X,'/',Z),
+    concat(Z,Y,R).
+
+
+

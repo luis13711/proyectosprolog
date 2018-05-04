@@ -1,0 +1,63 @@
+/*
+true Es un predicado que siempre devuelve un éxito
+
+fail Es un predicado que siempre devuelve un fallo
+
+var(X) Devuelve éxito si X no está instanciada.
+
+nonvar(X) Al revés.
+
+atom(X) Devuelve éxito si X es un "átomo" en el sentido deProlog
+(constantes y cadenas de caracteres son “átomos”; variables, funciones y
+números no).
+integer(X) Devuelve éxito si X es un entero.
+atomic(X) Devuelve éxito si X es un "átomo" ó un entero.
+write(X) Escribe en el periférico por defecto el contenido de la
+variable X. read(X) Lee un valor del periférico por defecto y lo
+almacena en la variable X. nl Escribe un retorno de carro. == Compara si
+dos “átomos” son iguales.
+\== Compara si dos “átomos” son distintos.
+
+
+
+reverse invierte una lista
+append concatena dos listas así append(L1,L2,LResultado).
+length(List,Longitud).
+NOTA: Si quisiéramos el conjunto de todas las personas,
+sin repetidos, usaríamos setof, bagof.
+knows(jim,fred).
+knows(alf,bert).
+setof([X,Y],knows(X,Y),Z).
+
+X+Y suma de X e Y
+X-Y X menos Y
+X*Y producto de X por Y
+X/Y cociente real de la divisi¶on de X por Y
+X//Y cociente entero de la divisi¶on de X por Y
+X mod Y resto de la divisi¶on entera de X por Y
+abs(X) valor absoluto de X
+sqrt(X) ra¶³z cuadrada de X
+log(X) logaritmo neperiano de X
+X =:= Y cierto si los valores num¶ericos de X e Y son iguales
+X =\= Y cierto si los valores num¶ericos de X e Y son distintos
+X < Y cierto si el valor num¶erico de X es menor que el de Y
+X =< Y cierto si el valor num¶erico de X es menor o igual que el de Y
+X > Y cierto si el valor num¶erico de X es mayor que el de Y
+X >= Y cierto si el valor num¶erico de X es mayor o igual que el de Y
+
+help(tema). muestra informacion detallada sobre un tema
+apropos(palabra).muestra una lista de todos los predicados y secciones del
+manual que contienen una palabra en concreto
+
+
+asserta (para añadir al principio)
+:-dynamic legusta/2.
+Inserta una nueva cláusula como si se hubiera escrito al principio del programa.
+- assertz (para añadir al final).
+
+borra_primero :- retract(esPadre(_)).
+sólo borraría el primer esPadre(_). Para borrarlos todos, hay que escribir:
+borra_todos :-
+retract(esPadre(_)),
+borra_todos.
+*/

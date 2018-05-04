@@ -1,0 +1,6 @@
+se abre el terminal se escribe
+primero swipl abrira el editor en consola
+segundo ['direccion/archivo.pl']. permitira compilar el programa
+tercero escribir el contenido del archivo para ver
+por ejemplo abs_1(-20,Y).
+nos deberia arrojar 20
